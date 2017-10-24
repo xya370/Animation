@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>plant-text</title>
+	<style>
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		body{
+			height:950px;
+			width:1366px;
+			/*background-color:skyblue;*/
+		}
+		div.unit{
+			height:100%;
+			background-image:url("./images/universe.png") no-repeat center center;
+
+		}
+		/*设置3d视角*/
+		.salr{
+			width:100%;
+			margin:0 auto;
+			background-color:#232;
+			display:relative;
+			top:90px;
+			height:0;
+			perspective-origin:50% 0;
+			transform-style:preserve-3d !important;
+		}
+		/*sun*/
+		.sun{
+			/*绝对定位，相对于最近的定位元素，或祖先元素定位*/
+			background-image:url("./images/sun.png") ;
+			background-size: cover;
+			position:absolute;
+			/*background-color:#dedede;*/
+			width:150px;
+			height:150px;
+			top:150px;
+			left:50%;
+			/*margin-left:85px;*/
+		}
+		/*轨道*/
+		.obll{
+			/*background-color:#232323;
+			width:100px;
+			height:100px;*/
+			border:1px solid #efefef;
+			border-radius:50%;
+			position:absolute;
+			transform-style:preserve-3d !important;
+			animation:orb 10s linear 0s normal none infinite;
+			/*transform:rotateX(-90deg) rotateY(0deg) rotateZ(0deg);*/
+		}
+		.plant{
+		
+			position:absolute;
+			transform-style:preserve-3d !important;
+			/*设置初始旋转角度，类似平面上旋转，角度为x轴,x轴绕水平线旋转，当x轴旋转到90度，趋近于水平面，此时与obll形成一个直角*/
+			transform:rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+		}
+		@keyframes orb{
+			0%{
+				transform:rotateX(75deg) rotateY(-10deg) rotateZ(0deg);
+			}100%{
+				transform:rotateX(75deg) rotateY(-10deg) rotateZ(-360deg);
+			}
+
+		}
+		/*行星轨道动画设置，利用夹角设置，水平夹角，x轴*/
+		.plant .ball{
+			background-size:100% 100%;
+			transform-origin:50% 50% 0;
+			position:absolute;
+			height:100%;
+			width:100%;
+			left:0;
+			top:0;
+			transform:rotateX(-90deg) rotateY(0deg);
+			animation:ball 10s linear 0s normal none infinite;
+		}
+
+		@keyframes ball{
+			0%{
+				transform:rotateX(0deg) rotateY(0deg);
+			}100%{
+				transform:rotateX(0deg) rotateY(-360deg);
+			}
+		}
+
+		/*利用z-inex,以及动画持续时间设置公转速度，产生一个公转差*/
+		/*水星*/
+		.mercury{
+			height:180px;
+			width:180px;
+			left:50%;
+			top:135px;
+			margin-left:-90px;
+			animation-duration:3s;
+			z-index:10;
+		}
+		.mercury .plant{
+			height:20px;
+			width:20px;
+			left:15px;
+			top:15px;
+		}
+		.mercury .plant .ball{
+			background-image:url("./images/mercury.png") ;
+			animation-duration:3s;
+		}
+		/*木星*/
+		.venus{
+			height:260px;
+			width:260px;
+			left:50%;
+			margin-left:-130px;
+			z-index:11;
+			top:100px;
+			animation-direction:8s;
+		}
+		.venus .plant{
+			height:30px;
+			width:30px;
+			left:23px;
+			top:23px;
+		}
+		.venus .plant .ball{
+			background-image:url("./images/venus.png") ;
+
+			animation-duration:8s;
+		}
+		/*地球*/
+		.earth{
+			height:340px;
+			width:340px;
+			left:50%;
+			top:55px;
+			margin-left:-170px;
+			z-index:12;
+			animation-direction:12s;
+		}
+		.earth .plant{
+			height:30px;
+			width:30px;
+			left:35px;
+			top:35px;
+		}
+		.earth .plant .earth{
+			background-image:url("./images/earth.png") ;
+			animation-duration:12s;
+		}
+		/*火星*/
+		.mars{
+			height:420px;
+			width:420px;
+			left:50%;
+			top:15px;
+			margin-left:-210px;
+			z-index:13;
+			animation-duration:20s;
+		}
+		.mars .plant{
+			height:24px;
+			left:50px;
+			top:50px;
+			width:24px;
+		}
+		.mars .plant .ball{
+			background-image:url("./images/mars.png") ;
+
+			animation-duration:20s;
+		}
+		/*jupiter*/
+		.jupiter{
+			width:570px;
+			height:570px;
+			left:50%;
+			top:-45px;
+			margin-left:-270px;
+			animation-duration:50s;
+		}
+		.jupiter .plant{
+			width:60px;
+			height:60px;
+			left:48px;
+			top:48px;
+		}
+		.jupiter .plant .ball{
+			background-image:url("./images/jupiter.png") ;
+
+			animation-duration:50s;
+		}
+		/*staturn*/
+		.staturn{
+			width:660px;
+			height:660px;
+			left:50%;
+			top:-105px;
+			margin-left:-330px;
+			animation-duration:60s;
+		}
+		.staturn .plant{
+			width:122px;
+			height:70px;
+			right:50px;
+			top:52px;
+		}
+		.staturn .ball{
+			background-image:url("./images/saturn.png") ;
+
+			animation-duration:60s;
+		}
+		/*----urans----*/
+		.urans{
+			width:740px;
+			height:740px;
+			left:50%;
+			animation-duration:70s;
+			margin-left:-390px;
+			top:-150px;
+		}
+		.urans .plant{
+			width:40px;
+			height:40px;
+			right:92px;
+			bottom:92px;
+		}
+		.urans .plant .ball{
+			background-image:url("./images/uranus.png") ;
+
+			animation:70s;
+		}
+		/*-------neptune-------*/
+		.neptune{
+			width:820px;
+			height:820px;
+			left:50%;
+			animation-duration:90s;
+			top:-225px;
+			margin-left:-450px;
+		}
+		.neptunr .plant{
+			width:112px;
+			height:38px;
+			right:112px;
+			bottom:38px;
+		},
+		.neptunr .ball{
+			background-image:url("./images/neptunr.png") ;
+
+			animation-duration:90s;
+		}
+		/*----plut---*/
+		.plut{
+			width:1000px;
+			height:1000px;
+			left:50%;
+
+		}
+		/*设置行星自转动画*/
+		/*@keyframes plut{
+			0%{
+				transform:rotateX(75deg) rotateY(-25deg) rotateZ(0deg);
+			}
+		}*/
+	</style>
+</head>
+<body>
+	<div class="unit" style="background-image:url('./images/universe.png')">
+		<div class="salr">
+			<div class="sun"></div>
+			<!-- 水星 -->
+			<div class="obll mercury">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!-- 木星 -->
+			<div class="obll venus">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!-- 地球 -->
+			<div class="obll earth">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!-- 火星 -->
+			<div class="obll mars">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="obll jupiter">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="obll saturn">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="obll urans">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!--neptune  -->
+			<div class="obll neptune">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+			<!-- pluto -->
+			<div class="obll pluto">
+				<div class="plant">
+					<div class="ball"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
