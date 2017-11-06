@@ -15,7 +15,7 @@
 		}
 		div.unit{
 			height:100%;
-			background-image:url("./images/universe.png") no-repeat center center;
+			/*background-image:url("./images/universe.png") no-repeat center center;*/
 
 		}
 		/*设置3d视角*/
@@ -35,18 +35,18 @@
 			background-image:url("./images/sun.png") ;
 			background-size: cover;
 			position:absolute;
-			/*background-color:#dedede;*/
+			/*background-color:red;*/
 			width:150px;
 			height:150px;
 			top:150px;
-			left:50%;
+			left:45%;
 			/*margin-left:85px;*/
 		}
 		/*轨道*/
 		.obll{
-			/*background-color:#232323;
+			/*background-color:#232323;*/
 			width:100px;
-			height:100px;*/
+			height:100px;
 			border:1px solid #efefef;
 			border-radius:50%;
 			position:absolute;
@@ -55,7 +55,7 @@
 			/*transform:rotateX(-90deg) rotateY(0deg) rotateZ(0deg);*/
 		}
 		.plant{
-		
+			/*background:#565656;*/
 			position:absolute;
 			transform-style:preserve-3d !important;
 			/*设置初始旋转角度，类似平面上旋转，角度为x轴,x轴绕水平线旋转，当x轴旋转到90度，趋近于水平面，此时与obll形成一个直角*/
@@ -71,6 +71,7 @@
 		}
 		/*行星轨道动画设置，利用夹角设置，水平夹角，x轴*/
 		.plant .ball{
+			/*background:skyblue;*/
 			background-size:100% 100%;
 			transform-origin:50% 50% 0;
 			position:absolute;
@@ -109,163 +110,197 @@
 		}
 		.mercury .plant .ball{
 			background-image:url("./images/mercury.png") ;
+			/*background-color:skyblue;*/
 			animation-duration:3s;
 		}
-		/*木星*/
-		.venus{
-			height:260px;
-			width:260px;
-			left:50%;
-			margin-left:-130px;
-			z-index:11;
-			top:100px;
-			animation-direction:8s;
-		}
-		.venus .plant{
-			height:30px;
-			width:30px;
-			left:23px;
-			top:23px;
-		}
-		.venus .plant .ball{
-			background-image:url("./images/venus.png") ;
+	/*木星*/
+	.venus{
+		height:260px;
+		width:260px;
+		left:50%;
+		margin-left:-130px;
+		z-index:11;
+		top:100px;
+		animation-direction:8s;
+	}
+	.venus .plant{
+		height:30px;
+		width:30px;
+		left:23px;
+		top:23px;
+	}
+	.venus .plant .ball{
+		background-image:url("./images/venus.png") ;
+		/*background-color:skyblue;*/
+		animation-duration:8s;
+	}
+	/*
+	地球*/
+	.earth{
+		height:340px;
+		width:340px;
+		left:50%;
+		top:55px;
+		margin-left:-170px;
+		z-index:12;
+		animation-direction:12s;
+	}
+	.earth .plant{
+		height:30px;
+		width:30px;
+		left:25px;
+		top:35px;
+	}
+	.earth .plant .ball{
+		/*background-color:skyblue;*/
+		right:20px;
+		animation-duration:12s;
+	}
+	/*火星*/
+	.mars{
+		height:420px;
+		width:420px;
+		left:50%;
+		top:17px;
+		margin-left:-210px;
+		z-index:13;
+		animation-duration:20s;
+	}
+	.mars .plant{
+		height:24px;
+		left:50px;
+		top:50px;
+		width:24px;
+	}
+	.mars .plant .ball{
+		background-image:url("./images/mars.png") ;
+		/*background-color:skyblue;*/
+		animation-duration:20s;
+	}
+	/*jupiter*/
+	.jupiter{
+		width:540px;
+		height:540px;
+		left:50%;
+		top:-45px;
+		margin-left:-270px;
+		animation-duration:50s;
+		z-index:14;
+	}
+	.jupiter .plant{
+		width:60px;
+		height:60px;
+		left:48px;
+		top:48px;
+	}
+	.jupiter .plant .ball{
+		background-image:url("./images/jupiter.png") ;
+		/*background-color:yellow;*/
+	
+		animation-duration:50s;
+	}
+	/*staturn*/
+	.saturn{
+		width:660px;
+		height:660px;
+		left:50%;
+		top:-105px;
+		margin-left:-330px;
+		animation-duration:60s;
+	}
+	.saturn .plant{
+		height: 70px;
+    	width: 122px;
+    	right: 52px;
+    	top: 52px;
+	}
+	.saturn>.plant>.ball{
+		background-image:url("./images/saturn.png") ;
+		/*background-color:skyblue;*/
+		animation-duration:60s;
+	}
+	/*----urans----*/
+	 .urans{
+		 height: 780px;
+    	width: 780px;
+    	left: 50%;
+    	top: -165px;
+    	margin-left:-390px;
+    	animation-duration: 80s;
+		/*z-index:22;*/
+	}
+	.urans .plant{
+		width:40px;
+		height:40px;
+		right:92px;
+		bottom:92px;
+		
+	}
+	.urans>.plant>.ball{
+		background-image:url("./images/uranus.png") ;
+		transform:rotateZ(90deg);
+		/*background-color:green;*/
+		animation:80s;
+	}
+ 	/*-------neptune-------*/
+.neptune{
+	width:900px;
+	height:900px;
+	left:50%;
+	animation-duration:90s;
+	top:-225px;
+	margin-left:-450px;
+	/*background:black;*/
+}
+.neptune .plant{
+	height: 38px;
+    	left: 112px;
+    	bottom: 112px;
+    	width: 38px;
+	/*background-color:black;*/
+},
+.neptune>.plant>.ball{
+	transform:rotateZ(90deg);
+	
+	transform:rotateX(45deg);
+	background-image:url("./images/neptune.png");
+	background:red;
+	animation-duration:90s;
+}  
+	/*----plut---*/
+	.pluto{
+		width:1000px;
+		height:1000px;
+		left:50%;
+		top:-325px;
+		margin-left:-430px;
+	    transform: rotateX(75deg) rotateY(-25deg) rotateZ(90deg);
+	    /*background:black;*/
 
-			animation-duration:8s;
-		}
-		/*地球*/
-		.earth{
-			height:340px;
-			width:340px;
-			left:50%;
-			top:55px;
-			margin-left:-170px;
-			z-index:12;
-			animation-direction:12s;
-		}
-		.earth .plant{
-			height:30px;
-			width:30px;
-			left:35px;
-			top:35px;
-		}
-		.earth .plant .earth{
-			background-image:url("./images/earth.png") ;
-			animation-duration:12s;
-		}
-		/*火星*/
-		.mars{
-			height:420px;
-			width:420px;
-			left:50%;
-			top:15px;
-			margin-left:-210px;
-			z-index:13;
-			animation-duration:20s;
-		}
-		.mars .plant{
-			height:24px;
-			left:50px;
-			top:50px;
-			width:24px;
-		}
-		.mars .plant .ball{
-			background-image:url("./images/mars.png") ;
+	    animation-duration:100s;
+	    animation-name:plut;
 
-			animation-duration:20s;
-		}
-		/*jupiter*/
-		.jupiter{
-			width:570px;
-			height:570px;
-			left:50%;
-			top:-45px;
-			margin-left:-270px;
-			animation-duration:50s;
-		}
-		.jupiter .plant{
-			width:60px;
-			height:60px;
-			left:48px;
-			top:48px;
-		}
-		.jupiter .plant .ball{
-			background-image:url("./images/jupiter.png") ;
-
-			animation-duration:50s;
-		}
-		/*staturn*/
-		.staturn{
-			width:660px;
-			height:660px;
-			left:50%;
-			top:-105px;
-			margin-left:-330px;
-			animation-duration:60s;
-		}
-		.staturn .plant{
-			width:122px;
-			height:70px;
-			right:50px;
-			top:52px;
-		}
-		.staturn .ball{
-			background-image:url("./images/saturn.png") ;
-
-			animation-duration:60s;
-		}
-		/*----urans----*/
-		.urans{
-			width:740px;
-			height:740px;
-			left:50%;
-			animation-duration:70s;
-			margin-left:-390px;
-			top:-150px;
-		}
-		.urans .plant{
-			width:40px;
-			height:40px;
-			right:92px;
-			bottom:92px;
-		}
-		.urans .plant .ball{
-			background-image:url("./images/uranus.png") ;
-
-			animation:70s;
-		}
-		/*-------neptune-------*/
-		.neptune{
-			width:820px;
-			height:820px;
-			left:50%;
-			animation-duration:90s;
-			top:-225px;
-			margin-left:-450px;
-		}
-		.neptunr .plant{
-			width:112px;
-			height:38px;
-			right:112px;
-			bottom:38px;
-		},
-		.neptunr .ball{
-			background-image:url("./images/neptunr.png") ;
-
-			animation-duration:90s;
-		}
-		/*----plut---*/
-		.plut{
-			width:1000px;
-			height:1000px;
-			left:50%;
-
-		}
+	} 
+	.pluto .plant{
+		height: 30px;
+    	width: 30px;
+    	left: 138px;
+    	bottom: 138px;
+	}
+	.pluto .plant .ball{
+		background-image:url('./images/pluto.png');
+		animation:100s;
+	}
 		/*设置行星自转动画*/
-		/*@keyframes plut{
+		@keyframes plut{
 			0%{
 				transform:rotateX(75deg) rotateY(-25deg) rotateZ(0deg);
 			}
-		}*/
+			100%{
+				transform:rotateX(75deg) rotateY(-25deg) rotateZ(-360deg);
+
+			}
+		}
 	</style>
 </head>
 <body>
@@ -287,7 +322,7 @@
 			<!-- 地球 -->
 			<div class="obll earth">
 				<div class="plant">
-					<div class="ball"></div>
+					<div class="ball" style="background-image:url(./images/earth.png)"></div>
 				</div>
 			</div>
 			<!-- 火星 -->
@@ -317,7 +352,7 @@
 			<!--neptune  -->
 			<div class="obll neptune">
 				<div class="plant">
-					<div class="ball"></div>
+					<div class="ball" style="background-image:url('./images/neptune.png')"></div>
 				</div>
 			</div>
 			<!-- pluto -->
